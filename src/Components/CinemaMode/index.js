@@ -36,7 +36,7 @@ const Button = styled.button`
     background: transparent;
     display: block;
     border: none;
-    color: #d62d22;
+    color: ${props => props.theme.cinema};
     font-weight: bold;
     text-align: right;
     padding: 0;
@@ -92,9 +92,9 @@ export default class CinemaMode extends Component {
 
                     {cinemaMode
                         ? createPortal(
-                              <Overlay onClick={this.toggleCinemaMode} />,
-                              document.getElementsByTagName('body')[0]
-                          )
+                            <Overlay onClick={this.toggleCinemaMode} />,
+                            document.getElementsByTagName('body')[0]
+                        )
                         : null}
                 </div>
             </Column>

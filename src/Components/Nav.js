@@ -79,7 +79,7 @@ injectGlobal`
 const Name = styled.h2`
     font-size: 400;
     font-size: ${remcalc(22)};
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.main};
     letter-spacing: ${remcalc(-0.63)};
 `
 
@@ -267,14 +267,14 @@ class Navigation extends Component {
                                                             : null}
                                                         {this.state
                                                             .submitted ? (
-                                                            <svg
-                                                                className="checkmark"
-                                                                viewBox="0 0 70 70"
-                                                            >
-                                                                <path d="m31.5,46.5l15.3,-23.2" />
-                                                                <path d="m31.5,46.5l-8.5,-7.1" />
-                                                            </svg>
-                                                        ) : null}
+                                                                <svg
+                                                                    className="checkmark"
+                                                                    viewBox="0 0 70 70"
+                                                                >
+                                                                    <path d="m31.5,46.5l15.3,-23.2" />
+                                                                    <path d="m31.5,46.5l-8.5,-7.1" />
+                                                                </svg>
+                                                            ) : null}
                                                     </Button>
                                                 </form>
                                             )}
