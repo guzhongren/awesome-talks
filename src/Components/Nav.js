@@ -14,6 +14,7 @@ import Button from './Styling/Button'
 import Input from './Styling/Input'
 import CREATE_VIDEO from '../Queries/ADD_VIDEO'
 import GET_FAVORITES from '../Queries/GET_FAVORITES'
+import SWITCH_MODE, { GET_MODE } from '../Queries/SWITCH_MODE'
 
 import linkParser from '../Utils/link-parser'
 
@@ -267,19 +268,32 @@ class Navigation extends Component {
                                                             : null}
                                                         {this.state
                                                             .submitted ? (
-                                                                <svg
-                                                                    className="checkmark"
-                                                                    viewBox="0 0 70 70"
-                                                                >
-                                                                    <path d="m31.5,46.5l15.3,-23.2" />
-                                                                    <path d="m31.5,46.5l-8.5,-7.1" />
-                                                                </svg>
-                                                            ) : null}
+                                                            <svg
+                                                                className="checkmark"
+                                                                viewBox="0 0 70 70"
+                                                            >
+                                                                <path d="m31.5,46.5l15.3,-23.2" />
+                                                                <path d="m31.5,46.5l-8.5,-7.1" />
+                                                            </svg>
+                                                        ) : null}
                                                     </Button>
                                                 </form>
                                             )}
                                         </Mutation>
                                     </Modal>
+                                </Item>
+                                <Item>
+                                    <Mutation mutation={SWITCH_MODE}>
+                                        {(switchMode, { data, loading }) => (
+                                            <Query query={GET_MODE}>
+                                                {({ data: { mode } }) => (
+                                                    <a onClick={switchMode}>
+                                                        <span>{mode}</span>
+                                                    </a>
+                                                )}
+                                            </Query>
+                                        )}
+                                    </Mutation>
                                 </Item>
                             </List>
                         </Nav>
